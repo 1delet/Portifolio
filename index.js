@@ -12,6 +12,45 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
+// Funcionalidade do modo escuro
+const themeToggle = document.getElementById('theme-toggle');
+const themeIcon = themeToggle.querySelector('i');
+const currentTheme = localStorage.getItem('theme') || 'light';
+
+// Aplicar tema salvo
+if (currentTheme === 'dark') {
+  document.documentElement.setAttribute('data-theme', 'dark');
+  themeIcon.className = 'fas fa-sun';
+}
+
+// Toggle do tema
+themeToggle.addEventListener('click', () => {
+  const currentTheme = document.documentElement.getAttribute('data-theme');
+  
+  // Adicionar classe de transição
+  document.body.style.transition = 'all 0.3s ease';
+  
+  if (currentTheme === 'dark') {
+    // Mudar para modo claro
+    document.documentElement.setAttribute('data-theme', 'light');
+    themeIcon.className = 'fas fa-moon';
+    localStorage.setItem('theme', 'light');
+  } else {
+    // Mudar para modo escuro
+    document.documentElement.setAttribute('data-theme', 'dark');
+    themeIcon.className = 'fas fa-sun';
+    localStorage.setItem('theme', 'dark');
+  }
+  
+  // Adicionar efeito visual ao botão
+  themeToggle.style.transform = 'rotate(360deg)';
+  setTimeout(() => {
+    themeToggle.style.transform = 'rotate(0deg)';
+    // Remover transição extra após a animação
+    document.body.style.transition = '';
+  }, 300);
+});
+
 // Atualizar navegação ativa baseado na rolagem
 window.addEventListener("scroll", () => {
   const sections = document.querySelectorAll("section[id]");
@@ -21,7 +60,6 @@ window.addEventListener("scroll", () => {
 
   sections.forEach((section) => {
     const sectionTop = section.offsetTop;
-    const sectionHeight = section.clientHeight;
     if (pageYOffset >= sectionTop - 200) {
       current = section.getAttribute("id");
     }
