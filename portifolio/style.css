@@ -105,7 +105,7 @@ body {
 
 /* Header */
 .main-header {
-  padding: 60px 0;
+  padding: 100px 0;
   text-align: center;
   background: var(--bg-secondary);
   border-bottom: 1px solid var(--border-color);
@@ -114,14 +114,14 @@ body {
 }
 
 .main-header h1 {
-  font-size: 3rem;
+  font-size: 4rem;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   color: var(--text-primary);
 }
 
 .main-header > .container > p {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: var(--text-secondary);
   margin-bottom: 30px;
 }
@@ -269,15 +269,15 @@ body {
   text-decoration: underline;
 }
 
-/* Servers Section */
-.servers-section {
+/* Contact Section */
+.contact-section {
   padding: 80px 0;
   background: var(--bg-secondary);
   border-bottom: 1px solid var(--border-color);
   transition: background-color 0.3s ease;
 }
 
-.servers-section h1 {
+.contact-section h1 {
   font-size: 2.5rem;
   font-weight: 700;
   text-align: center;
@@ -285,63 +285,51 @@ body {
   color: var(--text-primary);
 }
 
-.servers-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 25px;
+.contact-content {
+  display: flex;
+  justify-content: center;
   margin-top: 40px;
 }
 
-.server-card {
-  background: var(--bg-secondary);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 10px var(--shadow);
-  transition: transform 0.2s ease, box-shadow 0.2s ease,
-    background-color 0.3s ease;
-  border: 1px solid var(--border-color);
+.contact-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 800px;
 }
 
-.server-card:hover {
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: var(--bg-primary);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-item:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 20px var(--shadow-hover);
 }
 
-.server-banner {
-  height: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.server-icon {
-  color: white;
-  opacity: 0.9;
-}
-
-.server-content {
-  padding: 20px;
+.contact-item i {
+  color: var(--accent);
+  width: 40px;
   text-align: center;
 }
 
-.server-content h2 {
-  font-size: 1.3rem;
+.contact-item h3 {
+  font-size: 1.2rem;
   font-weight: 600;
-  margin-bottom: 8px;
+  margin-bottom: 5px;
   color: var(--text-primary);
 }
 
-.server-role {
-  font-size: 0.9rem;
-  color: var(--accent);
-  font-weight: 500;
-  margin-bottom: 5px;
-}
-
-.server-members {
-  font-size: 0.9rem;
+.contact-item p {
   color: var(--text-secondary);
+  font-size: 1rem;
 }
 
 /* Footer */
@@ -492,15 +480,14 @@ body {
   }
 
   .main-header h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
 
   .main-header > .container > p {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
   }
 
-  .projects-section h1,
-  .servers-section h1 {
+  .projects-section h1 {
     font-size: 2rem;
   }
 
@@ -509,7 +496,7 @@ body {
     gap: 20px;
   }
 
-  .servers-grid {
+  .contact-info {
     grid-template-columns: 1fr;
     gap: 20px;
   }
@@ -535,24 +522,26 @@ body {
 
 @media (max-width: 480px) {
   .main-header {
-    padding: 40px 0;
+    padding: 60px 0;
   }
 
   .main-header h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 
   .about-section {
     padding: 60px 0;
   }
 
-  .projects-section,
-  .servers-section {
+  .projects-section {
     padding: 60px 0;
   }
 
-  .project-card,
-  .server-card {
+  .contact-section {
+    padding: 60px 0;
+  }
+
+  .project-card {
     padding: 20px;
   }
 
@@ -568,25 +557,23 @@ body {
   }
 }
 
-/* Smooth animations */
-.project-card,
-.server-card {
-  animation: fadeInUp 0.6s ease forwards;
+/* Animações dos cards */
+.projects-grid .project-card:nth-child(1) {
+  animation-delay: 0s;
 }
-
-.project-card:nth-child(2) {
+.projects-grid .project-card:nth-child(2) {
   animation-delay: 0.1s;
 }
-.project-card:nth-child(3) {
+.projects-grid .project-card:nth-child(3) {
   animation-delay: 0.2s;
 }
-.project-card:nth-child(4) {
+.projects-grid .project-card:nth-child(4) {
   animation-delay: 0.3s;
 }
-.project-card:nth-child(5) {
+.projects-grid .project-card:nth-child(5) {
   animation-delay: 0.4s;
 }
-.project-card:nth-child(6) {
+.projects-grid .project-card:nth-child(6) {
   animation-delay: 0.5s;
 }
 

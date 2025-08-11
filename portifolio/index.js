@@ -13,54 +13,58 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 });
 
 // Funcionalidade do modo escuro
-const themeToggle = document.getElementById('theme-toggle');
-const themeIcon = themeToggle.querySelector('i');
-const currentTheme = localStorage.getItem('theme') || 'light';
+const themeToggle = document.getElementById("theme-toggle");
+const themeIcon = themeToggle.querySelector("i");
+const currentTheme = localStorage.getItem("theme") || "light";
 
 // Aplicar tema salvo
-if (currentTheme === 'dark') {
-  document.documentElement.setAttribute('data-theme', 'dark');
-  themeIcon.className = 'fas fa-sun';
+if (currentTheme === "dark") {
+  document.documentElement.setAttribute("data-theme", "dark");
+  themeIcon.className = "fas fa-sun";
 }
 
 // Toggle do tema
-themeToggle.addEventListener('click', () => {
-  const currentTheme = document.documentElement.getAttribute('data-theme');
-  
+themeToggle.addEventListener("click", () => {
+  const currentTheme = document.documentElement.getAttribute("data-theme");
+
   // Adicionar classe de transição
-  document.body.style.transition = 'all 0.3s ease';
-  
-  if (currentTheme === 'dark') {
+  document.body.style.transition = "all 0.3s ease";
+
+  if (currentTheme === "dark") {
     // Mudar para modo claro
-    document.documentElement.setAttribute('data-theme', 'light');
-    themeIcon.className = 'fas fa-moon';
-    localStorage.setItem('theme', 'light');
+    document.documentElement.setAttribute("data-theme", "light");
+    themeIcon.className = "fas fa-moon";
+    localStorage.setItem("theme", "light");
   } else {
     // Mudar para modo escuro
-    document.documentElement.setAttribute('data-theme', 'dark');
-    themeIcon.className = 'fas fa-sun';
-    localStorage.setItem('theme', 'dark');
+    document.documentElement.setAttribute("data-theme", "dark");
+    themeIcon.className = "fas fa-sun";
+    localStorage.setItem("theme", "dark");
   }
-  
+
   // Adicionar efeito visual ao botão
-  themeToggle.style.transform = 'rotate(360deg)';
+  themeToggle.style.transform = "rotate(360deg)";
   setTimeout(() => {
-    themeToggle.style.transform = 'rotate(0deg)';
+    themeToggle.style.transform = "rotate(0deg)";
     // Remover transição extra após a animação
-    document.body.style.transition = '';
+    document.body.style.transition = "";
   }, 300);
 });
 
 // Atualizar navegação ativa baseado na rolagem
 window.addEventListener("scroll", () => {
-  const sections = document.querySelectorAll("section[id]");
+  const sections = document.querySelectorAll("section[id], header[id]");
   const navItems = document.querySelectorAll(".nav-item");
 
-  let current = "";
+  let current = "home"; // Valor padrão
 
   sections.forEach((section) => {
     const sectionTop = section.offsetTop;
-    if (pageYOffset >= sectionTop - 200) {
+    const sectionHeight = section.offsetHeight;
+    if (
+      window.pageYOffset >= sectionTop - 100 &&
+      window.pageYOffset < sectionTop + sectionHeight - 100
+    ) {
       current = section.getAttribute("id");
     }
   });
@@ -71,12 +75,6 @@ window.addEventListener("scroll", () => {
       item.classList.add("active");
     }
   });
-
-  // Se estiver no topo, marcar Home como ativo
-  if (window.scrollY < 300) {
-    navItems.forEach((item) => item.classList.remove("active"));
-    document.querySelector('.nav-item[href="#"]').classList.add("active");
-  }
 });
 
 // Animação dos cards ao aparecer na tela
@@ -96,7 +94,7 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observar todos os cards
 document.addEventListener("DOMContentLoaded", () => {
-  const cards = document.querySelectorAll(".project-card, .server-card");
+  const cards = document.querySelectorAll(".project-card, .contact-item");
   cards.forEach((card) => {
     card.style.opacity = "0";
     card.style.transform = "translateY(30px)";
@@ -119,7 +117,7 @@ document
   });
 
 // Adicionar efeito de clique nos cards
-document.querySelectorAll(".project-card, .server-card").forEach((card) => {
+document.querySelectorAll(".project-card, .contact-item").forEach((card) => {
   card.addEventListener("click", function () {
     this.style.transform = "scale(0.98)";
     setTimeout(() => {
