@@ -1,3 +1,7 @@
+/* Remove sublinhado dos links na seção de contato */
+.contact-item {
+  text-decoration: none !important;
+}
 /* Reset e configurações básicas */
 * {
   margin: 0;
