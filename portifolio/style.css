@@ -1,6 +1,14 @@
-/* Remove sublinhado dos links na seção de contato */
+/* Remove sublinhado dos links na seção de contato e define estilos do item de contato */
 .contact-item {
   text-decoration: none !important;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: var(--bg-primary);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 /* Reset e configurações básicas */
 * {
@@ -294,24 +302,7 @@ body {
   justify-content: center;
   margin-top: 40px;
 }
-
-.contact-info {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  max-width: 800px;
-}
-
-.contact-item {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  padding: 20px;
-  background: var(--bg-primary);
-  border-radius: 12px;
-  border: 1px solid var(--border-color);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
+/* Removed duplicate .contact-item selector */
 
 .contact-item:hover {
   transform: translateY(-2px);
