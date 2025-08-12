@@ -302,6 +302,14 @@ body {
   justify-content: center;
   margin-top: 40px;
 }
+
+.contact-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 800px;
+}
+
 /* Removed duplicate .contact-item selector */
 
 .contact-item:hover {
