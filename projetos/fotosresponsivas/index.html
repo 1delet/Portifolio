@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galeria de fotos Responsivas</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <h1><i class="fas fa-camera"></i> Galeria Responsiva</h1>
+        <p>Uma coleção de fotos em layout responsivo</p>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="container">
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">
+            <i class="fas fa-th"></i> Todas
+          </button>
+          <button class="filter-btn" data-filter="natureza">
+            <i class="fas fa-leaf"></i> Natureza
+          </button>
+          <button class="filter-btn" data-filter="cidade">
+            <i class="fas fa-city"></i> Cidade
+          </button>
+          <button class="filter-btn" data-filter="pessoas">
+            <i class="fas fa-users"></i> Pessoas
+          </button>
+        </div>
+
+        <div class="gallery" id="gallery">
+          <!-- Fotos de exemplo - substitua pelas suas imagens -->
+          <div class="gallery-item" data-category="natureza">
+            <img
+              src="https://picsum.photos/400/300?random=1"
+              alt="Natureza 1"
+              loading="lazy"
+            />
+            <div class="overlay">
+              <h3>Paisagem Natural</h3>
+              <p>Uma bela vista da natureza</p>
+              <button class="view-btn" onclick="openModal(this)">
+                <i class="fas fa-expand"></i> Ver
+              </button>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="cidade">
+            <img
+              src="https://picsum.photos/400/300?random=2"
+              alt="Cidade 1"
+              loading="lazy"
+            />
+            <div class="overlay">
+              <h3>Vida Urbana</h3>
+              <p>Movimento da cidade</p>
+              <button class="view-btn" onclick="openModal(this)">
+                <i class="fas fa-expand"></i> Ver
+              </button>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="pessoas">
+            <img
+              src="https://picsum.photos/400/300?random=3"
+              alt="Pessoas 1"
+              loading="lazy"
+            />
+            <div class="overlay">
+              <h3>Retrato</h3>
+              <p>Momentos especiais</p>
+              <button class="view-btn" onclick="openModal(this)">
+                <i class="fas fa-expand"></i> Ver
+              </button>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="natureza">
+            <img
+              src="https://picsum.photos/400/300?random=4"
+              alt="Natureza 2"
+              loading="lazy"
+            />
+            <div class="overlay">
+              <h3>Floresta</h3>
+              <p>Verde exuberante</p>
+              <button class="view-btn" onclick="openModal(this)">
+                <i class="fas fa-expand"></i> Ver
+              </button>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="cidade">
+            <img
+              src="https://picsum.photos/400/300?random=5"
+              alt="Cidade 2"
+              loading="lazy"
+            />
+            <div class="overlay">
+              <h3>Arquitetura</h3>
+              <p>Design moderno</p>
+              <button class="view-btn" onclick="openModal(this)">
+                <i class="fas fa-expand"></i> Ver
+              </button>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="pessoas">
+            <img
+              src="https://picsum.photos/400/300?random=6"
+              alt="Pessoas 2"
+              loading="lazy"
+            />
+            <div class="overlay">
+              <h3>Família</h3>
+              <p>Momentos únicos</p>
+              <button class="view-btn" onclick="openModal(this)">
+                <i class="fas fa-expand"></i> Ver
+              </button>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="natureza">
+            <img
+              src="https://picsum.photos/400/300?random=7"
+              alt="Natureza 3"
+              loading="lazy"
+            />
+            <div class="overlay">
+              <h3>Mar</h3>
+              <p>Ondas infinitas</p>
+              <button class="view-btn" onclick="openModal(this)">
+                <i class="fas fa-expand"></i> Ver
+              </button>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="cidade">
+            <img
+              src="https://picsum.photos/400/300?random=8"
+              alt="Cidade 3"
+              loading="lazy"
+            />
+            <div class="overlay">
+              <h3>Noite Urbana</h3>
+              <p>Luzes da cidade</p>
+              <button class="view-btn" onclick="openModal(this)">
+                <i class="fas fa-expand"></i> Ver
+              </button>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="pessoas">
+            <img
+              src="https://picsum.photos/400/300?random=9"
+              alt="Pessoas 3"
+              loading="lazy"
+            />
+            <div class="overlay">
+              <h3>Amigos</h3>
+              <p>Alegria compartilhada</p>
+              <button class="view-btn" onclick="openModal(this)">
+                <i class="fas fa-expand"></i> Ver
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Modal para visualização ampliada -->
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <button class="close" type="button" onclick="closeModal()" aria-label="Fechar modal">&times;</button>
+        <img id="modal-img" src="https://via.placeholder.com/400x300?text=Imagem" alt="" />
+        <div class="modal-info">
+          <h3 id="modal-title">Título da imagem</h3>
+          <p id="modal-description"></p>
+        </div>
+        <div class="modal-nav">
+          <button class="nav-btn prev" onclick="prevImage()">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="nav-btn next" onclick="nextImage()">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
