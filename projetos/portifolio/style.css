@@ -615,3 +615,12 @@ a {
   background: var(--text-primary);
   opacity: 0.7;
 }
+
+/* Bootstrap Icons size classes */
+.bi-2x {
+  font-size: 2em;
+}
+
+.bi-3x {
+  font-size: 3em;
+}

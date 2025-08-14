@@ -20,7 +20,7 @@ const currentTheme = localStorage.getItem("theme") || "light";
 // Aplicar tema salvo
 if (currentTheme === "dark") {
   document.documentElement.setAttribute("data-theme", "dark");
-  themeIcon.className = "fas fa-sun";
+  themeIcon.className = "bi bi-sun";
 }
 
 // Toggle do tema
@@ -33,12 +33,12 @@ themeToggle.addEventListener("click", () => {
   if (currentTheme === "dark") {
     // Mudar para modo claro
     document.documentElement.setAttribute("data-theme", "light");
-    themeIcon.className = "fas fa-moon";
+    themeIcon.className = "bi bi-moon";
     localStorage.setItem("theme", "light");
   } else {
     // Mudar para modo escuro
     document.documentElement.setAttribute("data-theme", "dark");
-    themeIcon.className = "fas fa-sun";
+    themeIcon.className = "bi bi-sun";
     localStorage.setItem("theme", "dark");
   }
 
