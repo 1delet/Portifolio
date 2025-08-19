@@ -57,17 +57,21 @@ window.addEventListener("scroll", () => {
   const navItems = document.querySelectorAll(".nav-item");
 
   let current = "home"; // Valor padrão
+  const scrollPosition = window.pageYOffset + 150; // Offset para melhor detecção
 
   sections.forEach((section) => {
     const sectionTop = section.offsetTop;
-    const sectionHeight = section.offsetHeight;
-    if (
-      window.pageYOffset >= sectionTop - 100 &&
-      window.pageYOffset < sectionTop + sectionHeight - 100
-    ) {
+    const sectionBottom = sectionTop + section.offsetHeight;
+
+    if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
       current = section.getAttribute("id");
     }
   });
+
+  // Se estiver no final da página, forçar contato como ativo
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
+    current = "contact";
+  }
 
   navItems.forEach((item) => {
     item.classList.remove("active");
