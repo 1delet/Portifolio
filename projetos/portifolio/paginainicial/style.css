@@ -224,11 +224,11 @@ body {
 }
 
 .projects-grid {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 30px;
   margin-top: 40px;
-  max-width: 500px;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -498,6 +498,7 @@ body {
   }
 
   .projects-grid {
+    grid-template-columns: 1fr;
     max-width: 100%;
     margin: 20px 0;
   }
@@ -552,6 +553,7 @@ body {
   }
 
   .projects-grid {
+    grid-template-columns: 1fr;
     max-width: 100%;
     margin: 15px 0;
   }
