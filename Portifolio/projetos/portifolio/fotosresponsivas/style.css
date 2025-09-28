@@ -1,0 +1,119 @@
+@charset "UTF-8";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #bf2c47 60%, #204473 100%);
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.cabeçalho {
+  background: #fff;
+  color: #204473;
+  padding: 24px 32px 24px 24px;
+  text-align: left;
+  font-weight: bold;
+  height: 70px;
+  margin-top: 0;
+  margin-bottom: 0;
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 4px 16px rgba(32, 68, 115, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.cabeçalho img {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(32, 68, 115, 0.12);
+}
+h1 {
+  text-align: left;
+  color: #204473;
+  margin-bottom: 0;
+  margin-top: 0;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.container {
+  width: 92%;
+  max-width: 1200px;
+  margin: 32px auto;
+  background: #f8f9fa;
+  padding: 32px 24px;
+  box-shadow: 0 4px 24px rgba(32, 68, 115, 0.1);
+  border-radius: 16px;
+}
+p {
+  text-align: center;
+  color: #204473;
+  margin-bottom: 20px;
+  font-size: 1.08rem;
+  line-height: 1.6;
+}
+.box-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+.box {
+  background: linear-gradient(120deg, #204473 80%, #2980b9 100%);
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 12px;
+  flex: 1 1 100%;
+  transition: all 0.3s cubic-bezier(0.4, 1.4, 0.6, 1);
+  box-shadow: 0 2px 12px rgba(32, 68, 115, 0.1);
+  padding-bottom: 16px;
+  border: 1px solid #e1e8ed;
+}
+.box:hover {
+  transform: translateY(-4px) scale(1.04);
+  background: linear-gradient(120deg, #2980b9 80%, #204473 100%);
+  box-shadow: 0 8px 32px rgba(32, 68, 115, 0.18);
+}
+.box img {
+  width: 210px;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+  margin-top: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(32, 68, 115, 0.13);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.box:hover img {
+  box-shadow: 0 8px 32px rgba(32, 68, 115, 0.22);
+  transform: scale(1.07);
+}
+.box p {
+  margin-top: 14px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+}
+@media screen and (min-width: 600px) {
+  .box {
+    flex: 1 1 calc(50% - 16px);
+  }
+}
+@media screen and (min-width: 900px) {
+  .box {
+    flex: 1 1 calc(33.33% - 16px);
+  }
+}
+@media screen and (min-width: 1200px) {
+  .box {
+    flex: 1 1 calc(25% - 16px);
+  }
+}
